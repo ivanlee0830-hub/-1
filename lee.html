@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>學生名片｜李柏廣</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0e1117;          /* 背景 */
+      --card:#161a24;        /* 卡片 */
+      --text:#f3f4f6;        /* 主要字色 */
+      --muted:#a6adbb;       /* 次要字色 */
+      --accent:#18c29c;      /* 強調色（複製按鈕）*/
+      --divider:#252c3a;     /* 分隔線 */
+      --chip-bg:#1d2333;     /* 小標籤底色 */
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      color:var(--text);
+      background: linear-gradient(180deg,#0b0d12, var(--bg) 60%) fixed;
+      font-family: 'Noto Sans TC', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'PingFang TC', 'Noto Sans CJK TC', 'Microsoft JhengHei', sans-serif;
+      line-height:1.65;
+    }
+    .container{max-width:780px; margin:32px auto 96px; padding:0 16px}
+    .card{background:var(--card); border:1px solid var(--divider); border-radius:16px; box-shadow:var(--shadow); overflow:hidden}
+
+    /* ===== 頂部 ===== */
+    .header{display:flex; justify-content:space-between; align-items:center; padding:24px 24px 10px; border-bottom:1px solid var(--divider)}
+    .badge{font-weight:700; letter-spacing:.02em; color:#d2d8e6}
+    .code{display:inline-block; background:var(--chip-bg); border:1px solid var(--divider); padding:3px 8px; border-radius:8px; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}
+    .copy-btn{border:0; background:var(--accent); color:#06241d; padding:10px 14px; border-radius:12px; font-weight:800; cursor:pointer; transition:transform .06s ease, filter .2s}
+    .copy-btn:active{transform:translateY(1px)}
+    .copy-btn[aria-pressed="true"]{filter:brightness(.92)}
+
+    .title{padding:8px 24px 0}
+    .title h1{margin:0 0 6px; font-size:34px; line-height:1.2}
+    .meta{padding:0 24px 18px; color:var(--muted); display:flex; gap:6px; flex-wrap:wrap}
+
+    /* ===== 章節 ===== */
+    .section{padding:22px 24px; border-top:1px solid var(--divider)}
+    .section h2{margin:0 0 12px; font-size:18px; color:#cbd5e1; letter-spacing:.02em}
+    .p{margin:0; color:#d9dee6}
+
+    .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:20px}
+    @media (max-width:640px){
+      .grid-2{grid-template-columns:1fr}
+      .title h1{font-size:28px}
+    }
+
+    .school{font-size:20px; font-weight:800}
+    .small{font-size:.98rem; color:#cfd6e4}
+    .tag{display:inline-block; padding:2px 8px; background:var(--chip-bg); border:1px solid var(--divider); border-radius:999px; font-size:12px; color:#cfd6e4}
+
+    .list{margin:.25rem 0 0 1.1rem}
+    .list li{margin:.15rem 0}
+
+    .contact{display:grid; gap:10px}
+    .linkish{color:#c1e8ff; text-decoration:none; border-bottom:1px dashed #2a7489}
+
+    .footer{ text-align:center; color:#7f8596; padding:20px; font-size:12px }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <article class="card" role="main">
+      <header class="header">
+        <div class="badge">學生編號：<span id="studentNo" class="code">AU112036092</span></div>
+        <button id="copyBtn" class="copy-btn" type="button" aria-label="複製學號">複製學號</button>
+      </header>
+
+      <div class="title"><h1>李柏廣</h1></div>
+      <div class="meta">第四學年 <span>·</span> 亞洲大學 <span>·</span> 應屆生</div>
+
+      <section class="section">
+        <h2>個人簡介</h2>
+        <p class="p">熱愛玩學習法律知識，興趣是打遊戲，希望可以以後從事有關法律相關工作。</p>
+      </section>
+
+      <section class="section">
+        <h2>學歷</h2>
+        <div class="school">亞洲大學</div>
+        <div class="small">第四學年（在學） — 主修：<span class="tag">財金法律系</span></div>
+      </section>
+
+      <section class="section">
+        <h2>技能</h2>
+        <div class="grid-2">
+          <div>
+            <div style="font-weight:800; margin-bottom:4px">廚藝</div>
+            <ul class="list p">
+              <li>義大利麵</li>
+              <li>黃悶雞米飯</li>
+            </ul>
+          </div>
+          <div>
+            <div style="font-weight:800; margin-bottom:4px">電腦</div>
+            <ul class="list p">
+              <li>文書處理（Word / Excel）</li>
+              <li>基礎 HTML / CSS</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>經歷</h2>
+        <p class="p">目前無正式工作經驗，希望在未來可以從事法律相關工作。</p>
+      </section>
+
+      <section class="section">
+        <h2>聯絡方式</h2>
+        <div class="contact">
+          <div><strong>Email</strong><br><a class="linkish" href="mailto:your.email@example.com">M103@gmail.com</a></div>
+          <div><strong>電話</strong><br><a class="linkish" href="tel:+886912345678">0919831651</a></div>
+        </div>
+      </section>
+
+    </article>
+  </div>
+
+  <script>
+    (function(){
+      const btn = document.getElementById('copyBtn');
+      const getNo = () => document.getElementById('studentNo').textContent.trim();
+
+      btn.addEventListener('click', async () => {
+        const no = getNo();
+        try{
+          await navigator.clipboard.writeText(no);
+          btn.textContent = '已複製！';
+          btn.setAttribute('aria-pressed','true');
+          setTimeout(()=>{ btn.textContent='複製學號'; btn.removeAttribute('aria-pressed'); }, 1600);
+        }catch(e){
+          // 瀏覽器不支援 Clipboard API 時的退場機制
+          const temp = document.createElement('input');
+          temp.value = no; document.body.appendChild(temp); temp.select(); document.execCommand('copy'); temp.remove();
+          btn.textContent = '已複製！';
+          setTimeout(()=>{ btn.textContent='複製學號'; }, 1600);
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
