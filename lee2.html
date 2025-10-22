@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>學生名片｜李柏廣</title>
+  <meta name="description" content="李柏廣｜亞洲大學 財金法律系 應屆生｜學號 AU112036092｜技能：文書處理、基礎前端、家常料理。">
+  <meta name="theme-color" content="#0e1117">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="學生名片｜李柏廣">
+  <meta property="og:description" content="亞洲大學 財金法律系 應屆生｜聯絡：M103@gmail.com｜電話：0919831651">
+  <meta property="og:image" content="pa2.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🎓</text></svg>">
+  <style>
+    :root{
+      --bg:#0e1117;
+      --card:#161a24;
+      --text:#f3f4f6;
+      --muted:#a6adbb;
+      --accent:#18c29c;
+      --divider:#252c3a;
+      --chip-bg:#1d2333;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --focus: 0 0 0 3px rgba(24,194,156,.35);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      color:var(--text);
+      background: linear-gradient(180deg,#0b0d12, var(--bg) 60%) fixed;
+      font-family: 'Noto Sans TC', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'PingFang TC', 'Noto Sans CJK TC', 'Microsoft JhengHei', sans-serif;
+      line-height:1.65;
+    }
+    .container{max-width:780px; margin:32px auto 96px; padding:0 16px}
+    .card{background:var(--card); border:1px solid var(--divider); border-radius:16px; box-shadow:var(--shadow); overflow:hidden}
+
+    .header{display:flex; justify-content:space-between; align-items:center; padding:24px 24px 10px; border-bottom:1px solid var(--divider)}
+    .badge{font-weight:700; letter-spacing:.02em; color:#d2d8e6}
+    .code{display:inline-block; background:var(--chip-bg); border:1px solid var(--divider); padding:3px 8px; border-radius:8px; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}
+    .btn{border:0; background:var(--accent); color:#06241d; padding:10px 14px; border-radius:12px; font-weight:800; cursor:pointer; transition:transform .06s ease, filter .2s}
+    .btn:active{transform:translateY(1px)}
+    .btn[aria-pressed="true"]{filter:brightness(.92)}
+    .btn:focus-visible{outline:none; box-shadow:var(--focus)}
+
+    .title{padding:8px 24px 0}
+    .title h1{margin:0 0 6px; font-size:34px; line-height:1.2}
+    .meta{padding:0 24px 18px; color:var(--muted); display:flex; gap:6px; flex-wrap:wrap}
+
+    .pa2{ text-align:center; margin-top:20px; }
+    .pa2 img{ width:140px; height:140px; border-radius:50%; object-fit:cover; box-shadow:0 4px 10px rgba(0,0,0,.3); transform:translateZ(0); transition:transform .2s ease; }
+    .pa2 img:hover{ transform:scale(1.03); }
+    @media (max-width:640px){ .pa2 img{ width:120px; height:120px; } }
+
+    .section{padding:22px 24px; border-top:1px solid var(--divider)}
+    .section h2{margin:0 0 12px; font-size:18px; color:#cbd5e1; letter-spacing:.02em}
+    .p{margin:0; color:#d9dee6}
+
+    .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:20px}
+    @media (max-width:640px){
+      .grid-2{grid-template-columns:1fr}
+      .title h1{font-size:28px}
+    }
+
+    .school{font-size:20px; font-weight:800}
+    .small{font-size:.98rem; color:#cfd6e4}
+    .tag{display:inline-block; padding:2px 8px; background:var(--chip-bg); border:1px solid var(--divider); border-radius:999px; font-size:12px; color:#cfd6e4}
+
+    .list{margin:.25rem 0 0 1.1rem}
+    .list li{margin:.15rem 0}
+
+    .contact{display:grid; gap:10px}
+    .linkish{color:#c1e8ff; text-decoration:none; border-bottom:1px dashed #2a7489}
+
+    .actions{display:flex; gap:10px; flex-wrap:wrap; align-items:center}
+    .footer{ text-align:center; color:#7f8596; padding:20px; font-size:12px }
+    @media print{
+      body{background:white}
+      .card{box-shadow:none; border:0}
+      .actions,.footer{display:none}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <article class="card" role="main" aria-labelledby="title">
+      <header class="header">
+        <div class="badge">學生編號：<span id="studentNo" class="code" aria-live="polite">AU112036092</span></div>
+        <div class="actions">
+          <button id="copyNo" class="btn" type="button" aria-label="複製學號">複製學號</button>
+          <button id="saveVcf" class="btn" type="button" aria-label="下載 vCard">下載名片</button>
+        </div>
+      </header>
+
+      <div class="pa2">
+        <img src="pa2.jpg" alt="李柏廣的頭像" width="140" height="140" loading="lazy" decoding="async">
+      </div>
+
+      <div class="title"><h1 id="title">李柏廣</h1></div>
+      <div class="meta" aria-label="基本資訊">第四學年 <span aria-hidden="true">·</span> 亞洲大學 <span aria-hidden="true">·</span> 應屆生</div>
+
+      <section class="section">
+        <h2>個人簡介</h2>
+        <p class="p">熱愛學習法律知識，也喜歡打電動；期望未來投入法律相關工作。</p>
+        <img src="pa1.jpg" alt="李柏廣夜景照片" width="1200" height="675" loading="lazy" style="width:100%; border-radius:12px; margin-top:12px; aspect-ratio:1200/675; object-fit:cover;">
+      </section>
+
+      <section class="section">
+        <h2>學歷</h2>
+        <div class="school">亞洲大學</div>
+        <div class="small">第四學年（在學） — 主修：<span class="tag">財金法律系</span></div>
+      </section>
+
+      <section class="section">
+        <h2>技能</h2>
+        <div class="grid-2">
+          <div>
+            <div style="font-weight:800; margin-bottom:4px">廚藝</div>
+            <ul class="list p">
+              <li>義大利麵</li>
+              <li>黃悶雞米飯</li>
+            </ul>
+          </div>
+          <div>
+            <div style="font-weight:800; margin-bottom:4px">電腦</div>
+            <ul class="list p">
+              <li>文書處理（Word / Excel）</li>
+              <li>基礎 HTML / CSS</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>經歷</h2>
+        <p class="p">目前無正式工作經驗，正積極累積實務能力與作品，期望未來從事法律或法務相關工作。</p>
+      </section>
+
+      <section class="section">
+        <h2>聯絡方式</h2>
+        <div class="contact">
+          <div>
+            <strong>Email</strong><br>
+            <a id="email" class="linkish" href="mailto:M103@gmail.com">M103@gmail.com</a>
+            <button class="btn" data-copy="#email" type="button" aria-label="複製 Email">複製</button>
+          </div>
+          <div>
+            <strong>電話</strong><br>
+            <a id="tel" class="linkish" href="tel:+886919831651">0919-831-651</a>
+            <button class="btn" data-copy="#tel" type="button" aria-label="複製電話">複製</button>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer" aria-label="附註">
+        若要公開此頁，建議將電話與學號改為以「圖片」或「局部遮蔽」呈現，以降低爬蟲蒐集風險。
+      </footer>
+    </article>
+  </div>
+
+  <script>
+    (function(){
+      const qs = s => document.querySelector(s);
+      const qsa = s => Array.from(document.querySelectorAll(s));
+      const setPressed = (el, pressed=true) => pressed ? el.setAttribute('aria-pressed','true') : el.removeAttribute('aria-pressed');
+
+      async function copyText(text){
+        try{
+          await navigator.clipboard.writeText(text);
+          return true;
+        }catch(e){
+          try{
+            const temp = document.createElement('input');
+            temp.value = text; document.body.appendChild(temp); temp.select(); document.execCommand('copy'); temp.remove();
+            return true;
+          }catch(err){ return false; }
+        }
+      }
+
+      const copyNoBtn = qs('#copyNo');
+      copyNoBtn?.addEventListener('click', async () => {
+        const no = qs('#studentNo').textContent.trim();
+        const ok = await copyText(no);
+        copyNoBtn.textContent = ok ? '已複製！' : '複製失敗';
+        setPressed(copyNoBtn, true);
+        setTimeout(()=>{ copyNoBtn.textContent='複製學號'; setPressed(copyNoBtn,false); }, 1600);
+      });
+
+      qsa('[data-copy]')?.forEach(btn => {
+        btn.addEventListener('click', async () => {
+          const target = qs(btn.getAttribute('data-copy'));
+          const text = (target.getAttribute('href')||'').startsWith('mailto:') || (target.getAttribute('href')||'').startsWith('tel:')
+            ? target.textContent.trim()
+            : target.textContent.trim();
+          const ok = await copyText(text);
+          const original = btn.textContent;
+          btn.textContent = ok ? '已複製！' : '複製失敗';
+          setPressed(btn,true);
+          setTimeout(()=>{ btn.textContent = original; setPressed(btn,false); }, 1600);
+        });
+      });
+
+      const saveBtn = qs('#saveVcf');
+      saveBtn?.addEventListener('click', () => {
+        const name = '李柏廣';
+        const email = 'M103@gmail.com';
+        const tel = '+886919831651';
+        const org = '亞洲大學';
+        const title = '財金法律系 應屆生';
+        const uid = 'AU112036092';
+
+        const vcf = [
+          'BEGIN:VCARD',
+          'VERSION:3.0',
+          `FN:${name}`,
+          `N:${name};;;;`,
+          `EMAIL;TYPE=INTERNET:${email}`,
+          `TEL;TYPE=CELL:${tel}`,
+          `ORG:${org}`,
+          `TITLE:${title}`,
+          `NOTE:Student No. ${uid}`,
+          'END:VCARD'
+        ].join('\n');
+
+        const blob = new Blob([vcf], {type:'text/vcard'});
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url; a.download = `${name}.vcf`; a.click();
+        URL.revokeObjectURL(url);
+      });
+    })();
+  </script>
+</body>
+</html>
+
